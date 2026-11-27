@@ -1,0 +1,14 @@
+{
+  "name": "workers-practice",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:hello": "wrangler dev --config hello-api/wrangler.jsonc --port 8781",
+    "dev:static": "wrangler dev --config static-site/wrangler.jsonc --port 8782",
+    "deploy:hello": "wrangler deploy --config hello-api/wrangler.jsonc",
+    "deploy:static": "wrangler deploy --config static-site/wrangler.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "^4.28.0"
+  }
+}

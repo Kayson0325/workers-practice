@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+dist/
+
+# Never commit tokens or local config
+.dev.vars
+.env
+.env.*
+!.env.example

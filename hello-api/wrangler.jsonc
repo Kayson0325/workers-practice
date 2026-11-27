@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "kayson-hello-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+
+  // Plain values, visible in the dashboard and the repository.
+  "vars": {
+    "GREETING": "hello from a Worker",
+    "BUILD_LABEL": "hand-deployed"
+  },
+
+  // Secrets are never written here. Set them with:
+  //   wrangler secret put SOME_SECRET --config hello-api/wrangler.jsonc
+
+  "observability": { "enabled": true }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Workers static assets</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Cloudflare Workers</p>
+      <h1>Served from a folder, not a Pages project</h1>
+      <p class="lede">
+        This page, its stylesheet and the image below are static files inside
+        <code>public/</code>. The Worker serves them directly, and there is no separate
+        Pages project, build pipeline or origin server involved.
+      </p>
+
+      <section class="cards">
+        <article>
+          <h2>One deployment unit</h2>
+          <p>
+            Assets and the Worker script ship together with <code>wrangler deploy</code>.
+            Nothing to keep in sync across two products.
+          </p>
+        </article>
+        <article>
+          <h2>Free for static requests</h2>
+          <p>
+            Requests that match a file are served from the edge cache and do not invoke
+            the Worker script, so they do not count against Worker request limits.
+          </p>
+        </article>
+        <article>
+          <h2>Same origin as the API</h2>
+          <p>
+            Adding a <code>main</code> script to this config would let one Worker serve
+            both the files and <code>/api/*</code>, with no CORS and no second domain.
+          </p>
+        </article>
+      </section>
+
+      <p class="check">
+        Try <a href="/about/team">a nested page</a> or
+        <a href="/does-not-exist">a path that has no file</a> to see the single page
+        application fallback. Note that <code>/about/team.html</code> answers with a
+        <code>307</code> to <code>/about/team</code>: with the default
+        <code>html_handling</code> the asset layer strips the extension, which is worth
+        knowing before debugging a link that looks broken.
+      </p>
+
+      <footer>
+        <p>Built while learning PIG-21: Workers, Wrangler and automated deploys.</p>
+      </footer>
+    </main>
+  </body>
+</html>

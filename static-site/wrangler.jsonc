@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "kayson-static-site",
+  "compatibility_date": "2026-08-01",
+
+  // Workers static assets: the Worker serves files from this directory.
+  // No Pages project, no build step, no separate origin.
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application"
+  },
+
+  "observability": { "enabled": true }
+}
