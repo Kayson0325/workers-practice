@@ -15,6 +15,7 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/hello") {
+      // A Worker sees every method, so the handler has to decide what it allows.
       if (request.method !== "GET") {
         return Response.json(
           { error: { code: "method_not_allowed", message: "Use GET" } },
