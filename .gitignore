@@ -7,3 +7,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Python venv created by a shell hook, not used by this project
+.venv/
